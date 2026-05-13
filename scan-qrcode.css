@@ -1,0 +1,393 @@
+/* scan-qrcode.css
+   Styling for Mahasiswa Scan QR Code page
+*/
+:root {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --muted: #9aa0a6;
+  --text: #22262a;
+  --accent: #5b9bd5;
+  --green: #62c68b;
+  --gray-light: #f4f8fc;
+  --radius: 10px;
+  --shadow: 0 8px 28px rgba(34,46,60,0.06);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* Header */
+.dash-header {
+  height: 64px;
+  background: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid #eef2f6;
+}
+.dash-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-sm {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #e9f3ff, #ffffff);
+  border-radius: 8px;
+  border: 1px solid #e6eef8;
+}
+.brand-text { font-weight: 600; }
+.header-right { display: flex; align-items: center; }
+.user-area {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--muted);
+}
+.user-area .user-name { font-weight: 600; color: var(--text); }
+.user-menu {
+  position: absolute;
+  right: 0;
+  top: 46px;
+  background: var(--card);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  display: none;
+  flex-direction: column;
+  min-width: 140px;
+}
+.user-menu button {
+  background: transparent;
+  border: 0;
+  padding: 10px 12px;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+}
+.user-menu button:hover { background: #f4f8fc; }
+
+/* Container & Sidebar */
+.dash-container {
+  display: flex;
+  min-height: calc(100vh - 64px);
+}
+.sidebar {
+  width: 220px;
+  background: var(--card);
+  padding: 18px;
+  border-right: 1px solid #eef2f6;
+}
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.nav-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+}
+.nav-item i {
+  width: 24px;
+  text-align: center;
+  color: #66707a;
+}
+.nav-item span { font-weight: 500; }
+.nav-item:hover {
+  background: #f4f8fc;
+  color: var(--accent);
+}
+.nav-item.active {
+  background: linear-gradient(90deg, #eef6ff, #ffffff);
+  color: var(--accent);
+  box-shadow: inset 0 0 0 1px rgba(91,155,213,0.06);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+.page-top h2 {
+  margin: 6px 0 4px;
+}
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Scan Container: Two column layout */
+.scan-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.scan-card,
+.info-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px;
+}
+
+.scan-card h3,
+.info-card h3 {
+  margin-top: 0;
+}
+
+.scan-instruction {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+/* Scan Area */
+.scan-area {
+  background: var(--gray-light);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #c7d9ed;
+  position: relative;
+}
+
+.scan-frame {
+  text-align: center;
+  color: var(--muted);
+}
+
+.scan-frame i {
+  font-size: 64px;
+  color: #c7d9ed;
+  margin-bottom: 8px;
+}
+
+.scan-frame p {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Corner markers for scan frame */
+.scan-area::before,
+.scan-area::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--accent);
+  opacity: 0.4;
+}
+
+.scan-area::before {
+  top: 12px;
+  left: 12px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.scan-area::after {
+  bottom: 12px;
+  right: 12px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Scan Status */
+.scan-status {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 12px;
+  padding: 8px;
+  background: var(--gray-light);
+  border-radius: 8px;
+}
+
+.scan-status.processing {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.scan-status.success {
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* Scan Actions */
+.scan-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.scan-actions button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #4a85c2;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid #e6eef6;
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  background: var(--gray-light);
+}
+
+.btn-primary i,
+.btn-secondary i {
+  margin-right: 6px;
+}
+
+/* Scan Message */
+.scan-message {
+  text-align: center;
+  font-size: 13px;
+  color: var(--green);
+  font-weight: 600;
+  min-height: 18px;
+}
+
+/* Info Card */
+.info-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.info-row label {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.info-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  width: fit-content;
+}
+
+.status-badge.waiting {
+  background: #f0f3f7;
+  color: var(--muted);
+}
+
+.status-badge.present {
+  background: rgba(98,198,139,0.14);
+  color: var(--green);
+}
+
+/* Footer */
+.dash-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 13px;
+  padding: 4px 8px;
+}
+
+.footer-links a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 12px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .scan-container {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    width: 64px;
+  }
+  .nav-item span {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .dash-container {
+    flex-direction: column;
+  }
+  .sidebar {
+    order: 2;
+    width: 100%;
+    display: flex;
+  }
+  .nav ul {
+    flex-direction: row;
+    overflow: auto;
+  }
+  .nav-item {
+    white-space: nowrap;
+  }
+  .scan-area {
+    min-height: 220px;
+  }
+  .scan-actions {
+    flex-direction: column;
+  }
+}

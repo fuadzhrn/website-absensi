@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SIA QR Code — Login</title>
+    <!-- Google Font: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- Header / Navbar -->
+    <header class="site-header">
+      <div class="brand">
+        <!-- Logo placeholder -->
+        <div class="logo" aria-hidden="true"></div>
+        <div class="brand-text">SIA QR Code</div>
+      </div>
+      <!-- Hamburger icon for mobile (non-functional menu placeholder) -->
+      <button id="hamburger" class="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <!-- Main content: centered login card -->
+    <main class="main-area">
+      <section class="login-wrapper">
+        <div class="login-card" role="region" aria-label="Login Card">
+          <!-- Simple QR code icon (SVG) -->
+          <div class="qr-icon" aria-hidden="true">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="6" height="6" stroke="currentColor" stroke-width="1.2" fill="none" rx="1"/>
+              <rect x="16" y="2" width="6" height="6" stroke="currentColor" stroke-width="1.2" fill="none" rx="1"/>
+              <rect x="2" y="16" width="6" height="6" stroke="currentColor" stroke-width="1.2" fill="none" rx="1"/>
+              <rect x="10" y="10" width="4" height="4" fill="currentColor" />
+              <rect x="16" y="10" width="2" height="2" fill="currentColor" />
+              <rect x="10" y="16" width="2" height="2" fill="currentColor" />
+            </svg>
+          </div>
+
+          <!-- Title and subtitle -->
+          <h1 class="card-title">Sistem Informasi Absensi Mahasiswa Menggunakan QR Code</h1>
+          <p class="card-subtitle">Digunakan oleh Admin, Dosen, dan Mahasiswa</p>
+
+          <hr class="divider">
+
+          <!-- Login form -->
+          <form id="loginForm" class="login-form" novalidate>
+            <!-- Email / Username -->
+              <label for="userInput">Email / Username</label>
+              <input id="userInput" name="user" type="text" placeholder="Masukkan email atau username">
+              <small class="error" id="userError" aria-live="polite"></small>
+
+              <!-- Role selection -->
+              <label for="roleSelect">Role</label>
+              <select id="roleSelect" name="role">
+                <option value="">-- Pilih Role --</option>
+                <option value="Admin">Admin</option>
+                <option value="Dosen">Dosen</option>
+                <option value="Mahasiswa">Mahasiswa</option>
+              </select>
+              <small class="error" id="roleError" aria-live="polite"></small>
+
+              <!-- Password with toggle -->
+              <label for="passwordInput">Password</label>
+              <div class="password-wrap">
+                <input id="passwordInput" name="password" type="password" placeholder="Masukkan password">
+                <button type="button" id="togglePassword" class="eye" aria-label="Tampilkan password">
+                  <!-- Eye icon -->
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                    <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                  </svg>
+                </button>
+              </div>
+              <small class="error" id="passError" aria-live="polite"></small>
+
+              <button type="submit" class="btn-login">Login</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-left">© 2024 Sistem Informasi Absensi Mahasiswa Menggunakan QR Code</div>
+      <div class="footer-links">
+        <a href="#">Tentang</a>
+        <a href="#">Bantuan</a>
+        <a href="#">Kontak</a>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard Dosen — SIA QR Code</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="dosen-dashboard.css">
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="dash-header">
+      <div class="dash-brand">
+        <div class="logo-sm" aria-hidden="true"></div>
+        <div class="brand-text">SIA QR Code</div>
+      </div>
+      <div class="header-right">
+        <div class="user-area" id="userArea">
+          <i class="fa-regular fa-user"></i>
+          <span class="user-name">Dosen</span>
+          <i class="fa-solid fa-caret-down dropdown-icon"></i>
+          <div class="user-menu" id="userMenu" aria-hidden="true">
+            <button id="profileBtn">Profil</button>
+            <button id="logoutBtn">Logout</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="dash-container">
+      <aside class="sidebar" id="sidebar">
+        <nav class="nav">
+          <ul>
+            <li class="nav-item active" data-key="dashboard"><i class="fa-solid fa-gauge-high"></i><span>Dashboard</span></li>
+            <li class="nav-item" data-key="jadwal"><i class="fa-solid fa-calendar-days"></i><span>Jadwal Mengajar</span></li>
+            <li class="nav-item" data-key="buat-qrcode"><i class="fa-solid fa-qrcode"></i><span>Buat QR Code</span></li>
+            <li class="nav-item" data-key="rekap"><i class="fa-solid fa-file-lines"></i><span>Rekap Absensi</span></li>
+            <li class="nav-item" data-key="logout"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <section class="page-top">
+          <h2>Dashboard Dosen</h2>
+          <p class="subtitle">Halaman ini digunakan untuk memantau jadwal mengajar dan absensi mahasiswa.</p>
+        </section>
+
+        <section class="two-col">
+          <div class="large-card">
+            <div class="card-header">
+              <h3>Jadwal Mengajar Hari Ini</h3>
+              <div>
+                <button class="btn-primary" id="buatQrTop"><i class="fa-solid fa-qrcode"></i> Buat QR Code</button>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Hari/Tanggal</th>
+                    <th>Mata Kuliah</th>
+                    <th>Kelas</th>
+                    <th>Jam</th>
+                    <th>Ruangan</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Rabu, 22 Mei 2024</td>
+                    <td>Pemrograman Dasar</td>
+                    <td>TI-1A</td>
+                    <td>08:00 - 09:40</td>
+                    <td>Lab. Komputer 1</td>
+                  </tr>
+                  <tr>
+                    <td>Rabu, 22 Mei 2024</td>
+                    <td>Struktur Data</td>
+                    <td>TI-2A</td>
+                    <td>10:00 - 11:40</td>
+                    <td>R. 201</td>
+                  </tr>
+                  <tr>
+                    <td>Rabu, 22 Mei 2024</td>
+                    <td>Algoritma</td>
+                    <td>SI-1A</td>
+                    <td>13:00 - 14:40</td>
+                    <td>Lab. Komputer 2</td>
+                  </tr>
+                  <tr>
+                    <td>Rabu, 22 Mei 2024</td>
+                    <td>Matematika Diskrit</td>
+                    <td>TI-1B</td>
+                    <td>15:00 - 16:40</td>
+                    <td>R. 203</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <aside class="right-col">
+            <div class="small-card">
+              <h4>Akses Cepat</h4>
+              <div class="quick-grid">
+                <div class="quick" id="quickBuatQr">
+                  <h5>Buat QR Code</h5>
+                  <p>Buat QR Code untuk absensi kelas</p>
+                </div>
+                <div class="quick" id="quickRekap">
+                  <h5>Rekap Absensi</h5>
+                  <p>Lihat rekap absensi mahasiswa per kelas</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="small-card">
+              <h4>Rekap Absensi Terbaru</h4>
+              <div class="table-wrap small">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Tanggal</th>
+                      <th>Mata Kuliah</th>
+                      <th>Kelas</th>
+                      <th>Jam</th>
+                      <th>Kehadiran</th>
+                      <th>Persentase</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>21 Mei 2024</td>
+                      <td>Algoritma</td>
+                      <td>SI-1A</td>
+                      <td>13:00 - 14:40</td>
+                      <td>28 / 32</td>
+                      <td>87,50%</td>
+                      <td><button class="btn-secondary detail">Lihat Detail</button></td>
+                    </tr>
+                    <tr>
+                      <td>21 Mei 2024</td>
+                      <td>Struktur Data</td>
+                      <td>TI-2A</td>
+                      <td>10:00 - 11:40</td>
+                      <td>30 / 35</td>
+                      <td>85,71%</td>
+                      <td><button class="btn-secondary detail">Lihat Detail</button></td>
+                    </tr>
+                    <tr>
+                      <td>20 Mei 2024</td>
+                      <td>Pemrograman Dasar</td>
+                      <td>TI-1A</td>
+                      <td>08:00 - 09:40</td>
+                      <td>31 / 34</td>
+                      <td>91,18%</td>
+                      <td><button class="btn-secondary detail">Lihat Detail</button></td>
+                    </tr>
+                    <tr>
+                      <td>20 Mei 2024</td>
+                      <td>Matematika Diskrit</td>
+                      <td>TI-1B</td>
+                      <td>15:00 - 16:40</td>
+                      <td>28 / 31</td>
+                      <td>90,32%</td>
+                      <td><button class="btn-secondary detail">Lihat Detail</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <footer class="dash-footer">
+          <div>© 2024 Sistem Informasi Absensi Mahasiswa Menggunakan QR Code</div>
+          <div class="footer-links">
+            <a href="#">Tentang</a>
+            <a href="#">Bantuan</a>
+            <a href="#">Kontak</a>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script src="dosen-dashboard.js" defer></script>
+  </body>
+</html>

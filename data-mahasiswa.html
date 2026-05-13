@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Data Mahasiswa — SIA QR Code</title>
+    <!-- Google Font: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Icon CDN: Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="data-mahasiswa.css">
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="dash-header">
+      <div class="dash-brand">
+        <div class="logo-sm" aria-hidden="true"></div>
+        <div class="brand-text">SIA QR Code</div>
+      </div>
+      <div class="header-right">
+        <div class="user-area" id="userArea">
+          <i class="fa-regular fa-user"></i>
+          <span class="user-name">Admin</span>
+          <i class="fa-solid fa-caret-down dropdown-icon"></i>
+          <div class="user-menu" id="userMenu" aria-hidden="true">
+            <button id="profileBtn">Profil</button>
+            <button id="logoutBtn">Logout</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Layout: sidebar + main -->
+    <div class="dash-container">
+      <aside class="sidebar" id="sidebar">
+        <nav class="nav">
+          <ul>
+            <li class="nav-item" data-key="dashboard"><i class="fa-solid fa-chart-simple"></i><span>Dashboard</span></li>
+            <li class="nav-item active" data-key="mahasiswa"><i class="fa-solid fa-user-graduate"></i><span>Data Mahasiswa</span></li>
+            <li class="nav-item" data-key="dosen"><i class="fa-solid fa-chalkboard-user"></i><span>Data Dosen</span></li>
+            <li class="nav-item" data-key="matakuliah"><i class="fa-solid fa-book"></i><span>Mata Kuliah</span></li>
+            <li class="nav-item" data-key="jadwal"><i class="fa-solid fa-calendar-days"></i><span>Jadwal</span></li>
+            <li class="nav-item" data-key="laporan"><i class="fa-solid fa-file-lines"></i><span>Laporan Absensi</span></li>
+            <li class="nav-item" data-key="logout"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <section class="page-top">
+          <h2>Data Mahasiswa</h2>
+          <p class="subtitle">Halaman ini digunakan untuk mengelola data mahasiswa.</p>
+        </section>
+
+        <section class="table-card">
+          <div class="card-header toolbar">
+            <div class="search-wrap">
+              <input id="searchInput" type="text" placeholder="Cari mahasiswa...">
+            </div>
+            <div>
+              <button class="btn-primary" id="addBtn"><i class="fa-solid fa-plus"></i> Tambah Mahasiswa</button>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table id="mahasiswaTable">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>NIM</th>
+                  <th>Nama Mahasiswa</th>
+                  <th>Kelas</th>
+                  <th>Jurusan</th>
+                  <th>Email</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Rows rendered by JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="pagination" id="pagination">
+            <button id="prevPage">Prev</button>
+            <div id="pageNumbers"></div>
+            <button id="nextPage">Next</button>
+          </div>
+        </section>
+
+        <footer class="dash-footer">
+          <div>© 2024 Sistem Informasi Absensi Mahasiswa Menggunakan QR Code</div>
+          <div class="footer-links">
+            <a href="#">Tentang</a>
+            <a href="#">Bantuan</a>
+            <a href="#">Kontak</a>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Modal: Add / Edit Mahasiswa -->
+    <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <h3 id="modalTitle">Tambah Mahasiswa</h3>
+        <form id="modalForm">
+          <label>NIM<input id="mNIM" type="text" required></label>
+          <label>Nama Mahasiswa<input id="mNama" type="text" required></label>
+          <label>Kelas<input id="mKelas" type="text" required></label>
+          <label>Jurusan<input id="mJurusan" type="text" required></label>
+          <label>Email<input id="mEmail" type="email" required></label>
+          <div class="modal-actions">
+            <button type="button" id="cancelBtn" class="btn-secondary">Batal</button>
+            <button type="submit" class="btn-primary">Simpan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="data-mahasiswa.js" defer></script>
+  </body>
+</html>

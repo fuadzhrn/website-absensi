@@ -1,0 +1,101 @@
+/*
+  style.css
+  Styling for SIA QR Code login page
+  - Uses soft neutral palette with gentle blue accent
+  - Responsive layout for desktop/tablet/mobile
+*/
+
+:root{
+  --bg-1: #f6f7fb; /* very light gray / soft */
+  --card: #ffffff;
+  --muted: #9aa0a6;
+  --text: #22262a;
+  --accent: #5b9bd5; /* soft blue */
+  --accent-strong: #4a85c2;
+  --shadow: 0 8px 30px rgba(33,40,50,0.06);
+  --radius: 12px;
+}
+
+/* Global */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg, var(--bg-1) 0%, #ffffff 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Header */
+.site-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 20px;
+  background:transparent;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+  width:44px;height:44px;background:linear-gradient(135deg,#e9eef8,#ffffff);border-radius:8px;border:1px solid #e6ecf6;box-shadow:0 2px 6px rgba(13,30,70,0.04);
+}
+.brand-text{font-weight:600;color:var(--text)}
+
+/* Hamburger */
+.hamburger{background:transparent;border:0;padding:8px;display:flex;flex-direction:column;gap:4px;cursor:pointer}
+.hamburger span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px}
+
+/* Main center area */
+.main-area{min-height:calc(100vh - 120px);display:flex;align-items:center;justify-content:center;padding:24px}
+.login-wrapper{width:100%;display:flex;align-items:center;justify-content:center}
+.login-card{
+  width:420px;
+  max-width:95%;
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:28px 28px 22px;
+  text-align:center;
+}
+
+.qr-icon{color:var(--muted);margin-bottom:10px}
+.card-title{font-size:18px;margin:6px 0 6px;font-weight:600}
+.card-subtitle{font-size:13px;margin:0;color:var(--muted)}
+.divider{border:0;height:1px;background:#eef2f6;margin:18px 0;border-radius:2px}
+
+/* Form */
+.login-form{display:flex;flex-direction:column;gap:12px;text-align:left}
+.login-form label{font-size:13px;color:#4b5358;margin-bottom:6px;display:block}
+.login-form input{
+  width:100%;padding:12px 14px;border-radius:10px;border:1px solid #e3e7ec;background:transparent;font-size:14px;color:var(--text);
+  transition:box-shadow .12s, border-color .12s, transform .06s;
+}
+.login-form input:focus{outline:none;border-color:var(--accent);box-shadow:0 4px 18px rgba(75,141,201,0.12)}
+.password-wrap{position:relative}
+.password-wrap .eye{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:transparent;border:0;padding:6px;cursor:pointer;color:var(--muted)}
+.error{display:block;height:18px;color:#d04545;font-size:12px;margin-top:4px}
+
+.btn-login{
+  margin-top:6px;padding:12px 14px;border-radius:10px;border:0;background:var(--accent);color:white;font-weight:600;cursor:pointer;font-size:15px;transition:background .12s, transform .06s;
+}
+.btn-login:hover{background:var(--accent-strong)}
+
+/* Footer */
+.site-footer{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:18px 20px;color:var(--muted);font-size:13px}
+.site-footer a{color:var(--muted);text-decoration:none;margin-left:12px}
+
+/* Responsive tweaks */
+@media (max-width:600px){
+  .login-card{padding:20px;width:92%}
+  .card-title{font-size:16px}
+  .hamburger{display:block}
+}
+
+@media (min-width:601px){
+  .hamburger{display:none}
+}
+
+@media (max-width:420px){
+  .card-title{font-size:15px}
+}

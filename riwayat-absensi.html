@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riwayat Absensi - Sistem Informasi Absensi Mahasiswa</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6.4.0 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="riwayat-absensi.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="dash-header">
+    <div class="dash-brand">
+      <div class="logo-sm"></div>
+      <span class="brand-text">SIA QR Code</span>
+    </div>
+    <div class="header-right">
+      <div class="user-area" id="userArea">
+        <i class="fa-solid fa-circle-user"></i>
+        <span class="user-name">Mahasiswa</span>
+        <i class="fa-solid fa-chevron-down"></i>
+        <div class="user-menu" id="userMenu">
+          <button id="profileBtn"><i class="fa-solid fa-user"></i> Profil</button>
+          <button id="logoutBtn"><i class="fa-solid fa-sign-out-alt"></i> Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="dash-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav class="nav">
+        <ul>
+          <li class="nav-item" data-key="dashboard">
+            <i class="fa-solid fa-gauge"></i>
+            <span>Dashboard</span>
+          </li>
+          <li class="nav-item" data-key="scan">
+            <i class="fa-solid fa-qrcode"></i>
+            <span>Scan QR Code</span>
+          </li>
+          <li class="nav-item active" data-key="riwayat">
+            <i class="fa-solid fa-history"></i>
+            <span>Riwayat Absensi</span>
+          </li>
+          <li class="nav-item" data-key="logout">
+            <i class="fa-solid fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Page Top -->
+      <div class="page-top">
+        <h2>Riwayat Absensi</h2>
+        <p class="subtitle">Halaman ini digunakan untuk melihat riwayat kehadiran mahasiswa.</p>
+      </div>
+
+      <!-- Riwayat Card -->
+      <div class="riwayat-card">
+        <!-- Filter Toolbar -->
+        <div class="filter-toolbar">
+          <div class="filter-group">
+            <input 
+              type="text" 
+              id="searchInput" 
+              class="search-input" 
+              placeholder="Cari mata kuliah..."
+            >
+          </div>
+          
+          <div class="filter-group">
+            <select id="statusFilter" class="filter-select">
+              <option value="">Semua Status</option>
+              <option value="Hadir">Hadir</option>
+              <option value="Terlambat">Terlambat</option>
+              <option value="Izin">Izin</option>
+              <option value="Alfa">Alfa</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <select id="semesterFilter" class="filter-select">
+              <option value="">Semua Semester</option>
+              <option value="1">Semester 1</option>
+              <option value="2">Semester 2</option>
+              <option value="3">Semester 3</option>
+              <option value="4">Semester 4</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <button id="filterBtn" class="btn-filter">
+              <i class="fa-solid fa-filter"></i> Tampilkan
+            </button>
+          </div>
+        </div>
+
+        <!-- Tabel Riwayat -->
+        <div class="table-wrapper">
+          <table class="riwayat-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Tanggal</th>
+                <th>Mata Kuliah</th>
+                <th>Kelas</th>
+                <th>Jam</th>
+                <th>Status</th>
+                <th>Keterangan</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <!-- Data rows will be inserted here by JavaScript -->
+            </tbody>
+          </table>
+          
+          <!-- Empty state -->
+          <div id="emptyState" class="empty-state" style="display: none;">
+            <i class="fa-solid fa-inbox"></i>
+            <p>Data riwayat absensi tidak ditemukan</p>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <button class="pagination-btn" id="prevBtn">
+            <i class="fa-solid fa-chevron-left"></i> Prev
+          </button>
+          <div class="pagination-numbers" id="paginationNumbers"></div>
+          <button class="pagination-btn" id="nextBtn">
+            Next <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="dash-footer">
+    <div class="footer-left">
+      © 2024 Sistem Informasi Absensi Mahasiswa Menggunakan QR Code
+    </div>
+    <div class="footer-right">
+      <a href="#"><i class="fa-solid fa-circle-info"></i> Tentang</a>
+      <a href="#"><i class="fa-solid fa-circle-question"></i> Bantuan</a>
+      <a href="#"><i class="fa-solid fa-envelope"></i> Kontak</a>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="riwayat-absensi.js"></script>
+</body>
+</html>

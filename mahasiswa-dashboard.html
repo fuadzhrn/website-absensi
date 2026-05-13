@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Mahasiswa - Sistem Informasi Absensi</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6.4.0 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="mahasiswa-dashboard.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="dash-header">
+    <div class="dash-brand">
+      <div class="logo-sm"></div>
+      <span class="brand-text">SIA QR Code</span>
+    </div>
+    <div class="header-right">
+      <div class="user-area" id="userArea">
+        <i class="fa-solid fa-circle-user"></i>
+        <span class="user-name">Mahasiswa</span>
+        <i class="fa-solid fa-chevron-down"></i>
+        <div class="user-menu" id="userMenu">
+          <button id="profileBtn"><i class="fa-solid fa-user"></i> Profil</button>
+          <button id="logoutBtn"><i class="fa-solid fa-sign-out-alt"></i> Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="dash-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav class="nav">
+        <ul>
+          <li class="nav-item active" data-key="dashboard">
+            <i class="fa-solid fa-gauge"></i>
+            <span>Dashboard</span>
+          </li>
+          <li class="nav-item" data-key="scan">
+            <i class="fa-solid fa-qrcode"></i>
+            <span>Scan QR Code</span>
+          </li>
+          <li class="nav-item" data-key="riwayat">
+            <i class="fa-solid fa-history"></i>
+            <span>Riwayat Absensi</span>
+          </li>
+          <li class="nav-item" data-key="logout">
+            <i class="fa-solid fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Page Top -->
+      <div class="page-top">
+        <h2>Dashboard Mahasiswa</h2>
+        <p class="subtitle">Halaman ini digunakan untuk melihat ringkasan kehadiran dan akses absensi mahasiswa.</p>
+      </div>
+
+      <!-- Student Profile Card -->
+      <div class="profile-card">
+        <div class="profile-icon">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="profile-info">
+          <h3 id="studentName">Andi Pratama</h3>
+          <div class="profile-detail">
+            <span><strong>NIM:</strong> 2022101001</span>
+            <span><strong>Kelas:</strong> TI-1A</span>
+            <span><strong>Program Studi:</strong> Teknik Informatika</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Statistics Cards -->
+      <div class="stats-grid">
+        <!-- Total Pertemuan -->
+        <div class="stat-card stat-blue">
+          <div class="stat-icon">
+            <i class="fa-solid fa-calendar-days"></i>
+          </div>
+          <div class="stat-content">
+            <p class="stat-label">Total Pertemuan</p>
+            <p class="stat-number">16</p>
+          </div>
+        </div>
+
+        <!-- Hadir -->
+        <div class="stat-card stat-green">
+          <div class="stat-icon">
+            <i class="fa-solid fa-check-circle"></i>
+          </div>
+          <div class="stat-content">
+            <p class="stat-label">Hadir</p>
+            <p class="stat-number">12</p>
+          </div>
+        </div>
+
+        <!-- Terlambat -->
+        <div class="stat-card stat-orange">
+          <div class="stat-icon">
+            <i class="fa-solid fa-clock"></i>
+          </div>
+          <div class="stat-content">
+            <p class="stat-label">Terlambat</p>
+            <p class="stat-number">2</p>
+          </div>
+        </div>
+
+        <!-- Izin/Alfa -->
+        <div class="stat-card stat-gray">
+          <div class="stat-icon">
+            <i class="fa-solid fa-ban"></i>
+          </div>
+          <div class="stat-content">
+            <p class="stat-label">Izin/Alfa</p>
+            <p class="stat-number">2</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Access Section -->
+      <div class="section-card">
+        <h3 class="section-title">Akses Cepat</h3>
+        <div class="quick-access-grid">
+          <!-- Scan QR Code Card -->
+          <div class="quick-access-card" id="scanCard">
+            <div class="quick-icon">
+              <i class="fa-solid fa-qrcode"></i>
+            </div>
+            <h4>Scan QR Code</h4>
+            <p>Lakukan absensi dengan memindai QR Code dari dosen</p>
+            <button class="quick-btn">
+              <i class="fa-solid fa-arrow-right"></i> Mulai
+            </button>
+          </div>
+
+          <!-- Riwayat Absensi Card -->
+          <div class="quick-access-card" id="historyCard">
+            <div class="quick-icon">
+              <i class="fa-solid fa-history"></i>
+            </div>
+            <h4>Riwayat Absensi</h4>
+            <p>Lihat daftar riwayat kehadiran perkuliahan</p>
+            <button class="quick-btn">
+              <i class="fa-solid fa-arrow-right"></i> Lihat
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Schedule Today Section -->
+      <div class="section-card">
+        <h3 class="section-title">Jadwal Hari Ini</h3>
+        <div class="table-wrapper">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Mata Kuliah</th>
+                <th>Jam</th>
+                <th>Ruangan</th>
+                <th>Dosen</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="scheduleBody">
+              <!-- Schedule rows will be inserted here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Latest Attendance Section -->
+      <div class="section-card">
+        <div class="section-header">
+          <h3 class="section-title">Riwayat Absensi Terbaru</h3>
+          <button id="viewAllBtn" class="btn-view-all">
+            <i class="fa-solid fa-arrow-right"></i> Lihat Semua
+          </button>
+        </div>
+        <div class="table-wrapper">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Tanggal</th>
+                <th>Mata Kuliah</th>
+                <th>Jam</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="historyBody">
+              <!-- History rows will be inserted here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="dash-footer">
+    <div class="footer-left">
+      © 2024 Sistem Informasi Absensi Mahasiswa Menggunakan QR Code
+    </div>
+    <div class="footer-right">
+      <a href="#"><i class="fa-solid fa-circle-info"></i> Tentang</a>
+      <a href="#"><i class="fa-solid fa-circle-question"></i> Bantuan</a>
+      <a href="#"><i class="fa-solid fa-envelope"></i> Kontak</a>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="mahasiswa-dashboard.js"></script>
+</body>
+</html>

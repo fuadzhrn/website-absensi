@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard Admin — SIA QR Code</title>
+    <!-- Google Font: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Icon CDN: Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin-dashboard.css">
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="dash-header">
+      <div class="dash-brand">
+        <div class="logo-sm" aria-hidden="true"></div>
+        <div class="brand-text">SIA QR Code</div>
+      </div>
+      <div class="header-right">
+        <div class="user-area" id="userArea">
+          <i class="fa-regular fa-user"></i>
+          <span class="user-name">Admin</span>
+          <i class="fa-solid fa-caret-down dropdown-icon"></i>
+          <div class="user-menu" id="userMenu" aria-hidden="true">
+            <button id="profileBtn">Profil</button>
+            <button id="logoutBtn">Logout</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Layout: sidebar + main -->
+    <div class="dash-container">
+      <aside class="sidebar" id="sidebar">
+        <nav class="nav">
+          <ul>
+            <li class="nav-item active" data-key="dashboard"><i class="fa-solid fa-chart-simple"></i><span>Dashboard</span></li>
+            <li class="nav-item" data-key="mahasiswa"><i class="fa-solid fa-user-graduate"></i><span>Data Mahasiswa</span></li>
+            <li class="nav-item" data-key="dosen"><i class="fa-solid fa-chalkboard-user"></i><span>Data Dosen</span></li>
+            <li class="nav-item" data-key="matakuliah"><i class="fa-solid fa-book"></i><span>Mata Kuliah</span></li>
+            <li class="nav-item" data-key="jadwal"><i class="fa-solid fa-calendar-days"></i><span>Jadwal</span></li>
+            <li class="nav-item" data-key="laporan"><i class="fa-solid fa-file-lines"></i><span>Laporan Absensi</span></li>
+            <li class="nav-item" data-key="logout"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <section class="page-top">
+          <h2>Dashboard Admin</h2>
+          <p class="subtitle">Halaman ini digunakan untuk memantau data absensi akademik.</p>
+        </section>
+
+        <!-- Statistic cards -->
+        <section class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+            <div class="stat-label">Jumlah Mahasiswa</div>
+            <div class="stat-value">1.248</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-user-tie"></i></div>
+            <div class="stat-label">Jumlah Dosen</div>
+            <div class="stat-value">86</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-book-open"></i></div>
+            <div class="stat-label">Jumlah Mata Kuliah</div>
+            <div class="stat-value">124</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+            <div class="stat-label">Jumlah Absensi</div>
+            <div class="stat-value">5.672</div>
+          </div>
+        </section>
+
+        <!-- Two column area: table + activity -->
+        <section class="two-col">
+          <div class="table-card">
+            <div class="card-header">
+              <h3>Ringkasan Data</h3>
+              <button class="btn-secondary" id="lihatSemua">Lihat Semua</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Tanggal</th>
+                    <th>Kelas</th>
+                    <th>Mata Kuliah</th>
+                    <th>Dosen</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>22 Mei 2024</td>
+                    <td>TI-1A</td>
+                    <td>Pemrograman Dasar</td>
+                    <td>Budi Santoso, S.Kom.</td>
+                    <td><span class="badge hadir">Hadir</span></td>
+                  </tr>
+                  <tr>
+                    <td>22 Mei 2024</td>
+                    <td>SI-2B</td>
+                    <td>Basis Data</td>
+                    <td>Dewi Lestari, M.Kom.</td>
+                    <td><span class="badge hadir">Hadir</span></td>
+                  </tr>
+                  <tr>
+                    <td>21 Mei 2024</td>
+                    <td>TI-2A</td>
+                    <td>Struktur Data</td>
+                    <td>Rudi Haryono, M.T.</td>
+                    <td><span class="badge hadir">Hadir</span></td>
+                  </tr>
+                  <tr>
+                    <td>21 Mei 2024</td>
+                    <td>SI-1A</td>
+                    <td>Algoritma</td>
+                    <td>Budi Santoso, S.Kom.</td>
+                    <td><span class="badge hadir">Hadir</span></td>
+                  </tr>
+                  <tr>
+                    <td>20 Mei 2024</td>
+                    <td>TI-1B</td>
+                    <td>Matematika Diskrit</td>
+                    <td>Dewi Lestari, M.Kom.</td>
+                    <td><span class="badge hadir">Hadir</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <aside class="activity-card">
+            <div class="card-header">
+              <h3>Aktivitas Terbaru</h3>
+              <button class="btn-secondary" id="lihatAktivitas">Lihat Semua Aktivitas</button>
+            </div>
+            <ul class="activity-list">
+              <li>
+                <div class="act-title">Absensi kelas TI-1A - Pemrograman Dasar</div>
+                <div class="act-meta">22 Mei 2024 • 09:15</div>
+              </li>
+              <li>
+                <div class="act-title">Absensi kelas SI-2B - Basis Data</div>
+                <div class="act-meta">22 Mei 2024 • 10:00</div>
+              </li>
+              <li>
+                <div class="act-title">Absensi kelas TI-2A - Struktur Data</div>
+                <div class="act-meta">21 Mei 2024 • 13:05</div>
+              </li>
+              <li>
+                <div class="act-title">Absensi kelas SI-1A - Algoritma</div>
+                <div class="act-meta">21 Mei 2024 • 08:30</div>
+              </li>
+              <li>
+                <div class="act-title">Absensi kelas TI-1B - Matematika Diskrit</div>
+                <div class="act-meta">20 Mei 2024 • 11:20</div>
+              </li>
+            </ul>
+          </aside>
+        </section>
+
+        <footer class="dash-footer">
+          <div>© 2024 Sistem Informasi Absensi Mahasiswa Menggunakan QR Code</div>
+          <div class="footer-links">
+            <a href="#">Tentang</a>
+            <a href="#">Bantuan</a>
+            <a href="#">Kontak</a>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script src="admin-dashboard.js" defer></script>
+  </body>
+</html>

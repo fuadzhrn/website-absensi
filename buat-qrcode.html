@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Buat QR Code — SIA QR Code</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="buat-qrcode.css">
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="dash-header">
+      <div class="dash-brand">
+        <div class="logo-sm" aria-hidden="true"></div>
+        <div class="brand-text">SIA QR Code</div>
+      </div>
+      <div class="header-right">
+        <div class="user-area" id="userArea">
+          <i class="fa-regular fa-user"></i>
+          <span class="user-name">Dosen</span>
+          <i class="fa-solid fa-caret-down dropdown-icon"></i>
+          <div class="user-menu" id="userMenu" aria-hidden="true">
+            <button id="profileBtn">Profil</button>
+            <button id="logoutBtn">Logout</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="dash-container">
+      <aside class="sidebar" id="sidebar">
+        <nav class="nav">
+          <ul>
+            <li class="nav-item" data-key="dashboard"><i class="fa-solid fa-gauge-high"></i><span>Dashboard</span></li>
+            <li class="nav-item" data-key="jadwal"><i class="fa-solid fa-calendar-days"></i><span>Jadwal Mengajar</span></li>
+            <li class="nav-item active" data-key="buat-qrcode"><i class="fa-solid fa-qrcode"></i><span>Buat QR Code</span></li>
+            <li class="nav-item" data-key="rekap"><i class="fa-solid fa-file-lines"></i><span>Rekap Absensi</span></li>
+            <li class="nav-item" data-key="logout"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <section class="page-top">
+          <h2>Buat QR Code</h2>
+          <p class="subtitle">Halaman ini digunakan untuk membuat QR Code absensi pada pertemuan kelas.</p>
+        </section>
+
+        <section class="form-preview">
+          <div class="form-card">
+            <h3>Form Buat QR Code</h3>
+            <form id="qrForm">
+              <label>Mata Kuliah
+                <select id="fldMatkul">
+                  <option value="">-- Pilih Mata Kuliah --</option>
+                  <option>Pemrograman Dasar</option>
+                  <option>Struktur Data</option>
+                  <option>Algoritma</option>
+                  <option>Matematika Diskrit</option>
+                  <option>Basis Data</option>
+                </select>
+              </label>
+
+              <label>Kelas
+                <select id="fldKelas">
+                  <option value="">-- Pilih Kelas --</option>
+                  <option>TI-1A</option>
+                  <option>TI-1B</option>
+                  <option>TI-2A</option>
+                  <option>SI-1A</option>
+                  <option>SI-2B</option>
+                </select>
+              </label>
+
+              <label>Pertemuan
+                <select id="fldPertemuan">
+                  <option value="">-- Pilih Pertemuan --</option>
+                  <option>Pertemuan 1</option>
+                  <option>Pertemuan 2</option>
+                  <option>Pertemuan 3</option>
+                  <option>Pertemuan 4</option>
+                  <option>Pertemuan 5</option>
+                  <option>Pertemuan 6</option>
+                  <option>Pertemuan 7</option>
+                  <option>Pertemuan 8</option>
+                </select>
+              </label>
+
+              <label>Tanggal
+                <input id="fldTanggal" type="date">
+              </label>
+
+              <label>Waktu Mulai
+                <input id="fldMulai" type="time">
+              </label>
+
+              <label>Waktu Selesai
+                <input id="fldSelesai" type="time">
+              </label>
+
+              <div class="form-actions">
+                <button type="button" id="generateBtn" class="btn-primary">Generate QR Code</button>
+              </div>
+            </form>
+          </div>
+
+          <aside class="preview-card">
+            <h3>Preview QR Code</h3>
+            <div class="qr-preview">
+              <div id="qrcode" class="placeholder">QR Code akan tampil di sini</div>
+            </div>
+            <div class="qr-detail" id="qrDetail" aria-live="polite"></div>
+            <div class="preview-actions">
+              <button id="downloadBtn" class="btn-secondary">Unduh</button>
+              <button id="showBtn" class="btn-secondary">Tampilkan</button>
+            </div>
+          </aside>
+        </section>
+
+        <section class="history-card">
+          <h3>Riwayat QR Code</h3>
+          <div class="table-wrap">
+            <table id="historyTable">
+              <thead>
+                <tr>
+                  <th>Tanggal</th>
+                  <th>Mata Kuliah</th>
+                  <th>Kelas</th>
+                  <th>Pertemuan</th>
+                  <th>Masa Berlaku</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <footer class="dash-footer">
+          <div>© 2024 Sistem Informasi Absensi Mahasiswa Menggunakan QR Code</div>
+          <div class="footer-links">
+            <a href="#">Tentang</a>
+            <a href="#">Bantuan</a>
+            <a href="#">Kontak</a>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <!-- QRCode.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="buat-qrcode.js" defer></script>
+  </body>
+</html>
