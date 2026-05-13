@@ -191,13 +191,17 @@ document.addEventListener('DOMContentLoaded', function () {
   // Sidebar interactions
   navItems.forEach(item => {
     item.addEventListener('click', function () {
-      // If dashboard clicked, redirect
       const key = this.dataset.key;
-      if (key === 'dashboard') { window.location.href = 'admin-dashboard.html'; return; }
-      if (key === 'logout') { localStorage.removeItem('isLogin'); window.location.href = 'index.html'; return; }
-      // set active state
       navItems.forEach(i => i.classList.remove('active'));
       this.classList.add('active');
+      
+      if (key === 'dashboard') { window.location.href = 'admin-dashboard.html'; return; }
+      if (key === 'mahasiswa') { window.location.href = 'data-mahasiswa.html'; return; }
+      if (key === 'dosen') { window.location.href = 'data-dosen.html'; return; }
+      if (key === 'matakuliah') { window.location.href = 'mata-kuliah.html'; return; }
+      if (key === 'jadwal') { window.location.href = 'jadwal.html'; return; }
+      if (key === 'laporan') { window.location.href = 'laporan-absensi.html'; return; }
+      if (key === 'logout') { localStorage.removeItem('isLogin'); window.location.href = 'index.html'; return; }
     });
   });
 

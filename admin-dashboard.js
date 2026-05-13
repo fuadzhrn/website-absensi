@@ -54,14 +54,28 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'index.html';
         return;
       }
+      if (key === 'dashboard') {
+        window.location.href = 'admin-dashboard.html';
+        return;
+      }
       if (key === 'mahasiswa') {
-        // go to Data Mahasiswa page
         window.location.href = 'data-mahasiswa.html';
         return;
       }
-      if (key === 'dashboard') {
-        // already on dashboard, but ensure correct page
-        window.location.href = 'admin-dashboard.html';
+      if (key === 'dosen') {
+        window.location.href = 'data-dosen.html';
+        return;
+      }
+      if (key === 'matakuliah') {
+        window.location.href = 'mata-kuliah.html';
+        return;
+      }
+      if (key === 'jadwal') {
+        window.location.href = 'jadwal.html';
+        return;
+      }
+      if (key === 'laporan') {
+        window.location.href = 'laporan-absensi.html';
         return;
       }
       // Placeholder for other pages
